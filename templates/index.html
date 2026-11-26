@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weight Prediction</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Weight Prediction System</h1>
+
+    <p>Enter your height to predict your weight</p>
+
+    <form action="/predict" method="POST">
+
+        <label>Height (Metres):</label>
+
+        <input type="number"
+               name="height"
+               step="0.01"
+               placeholder="Example: 1.75"
+               required>
+
+        <button type="submit">Predict Weight</button>
+
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
